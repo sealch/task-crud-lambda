@@ -1,0 +1,16 @@
+org: thesermanarm
+app: apollo-lambda-app
+service: apollo-lambda
+plugins:
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs12.x
+functions:
+  graphql:
+    handler: handler.graphqlHandler
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
